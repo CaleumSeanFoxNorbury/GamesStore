@@ -1,3 +1,23 @@
+# Ignore Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Ignore Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# Ignore Visual Studio 2017 auto generated files
+Generated\ Files/
+
 # Prerequisites
 *.d
 
