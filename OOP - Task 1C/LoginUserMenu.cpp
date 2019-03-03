@@ -7,7 +7,13 @@ LoginUserMenu::LoginUserMenu(const std::string & title, Application * app) : Men
 
 void LoginUserMenu::OutputOptions()
 {
-	Option('L', "Login");
+	std::vector<std::string> users = getUsers();
+	int counter = 0;
+	for each (std::string user in users)
+	{
+		counter++;
+		Option(counter, user);
+	}
 }
 
 bool LoginUserMenu::HandleChoice(char choice)
