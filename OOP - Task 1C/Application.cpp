@@ -1,6 +1,6 @@
 #include "Application.h"
 
-Application::Application() : userIsLoggedIn_(true)
+Application::Application() : userIsLoggedIn_(false)
 {
 }
 
