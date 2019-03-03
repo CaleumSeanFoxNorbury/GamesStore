@@ -19,7 +19,7 @@ class Menu
 		// Use this function to handle the possible choices from your menu
 		// Returning true means you are ready to go back to the previous menu
 		// Returning false means you will stay on the same menu
-		virtual bool HandleChoice(char) = 0;
+		virtual bool HandleChoice(const char) = 0;
 
 	protected:
 		Application *app;

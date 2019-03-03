@@ -20,7 +20,7 @@ void MainMenu::OutputOptions()
 	}
 }
 
-bool MainMenu::HandleChoice(char choice)
+bool MainMenu::HandleChoice(const char choice)
 {
 	switch (choice)
 	{
