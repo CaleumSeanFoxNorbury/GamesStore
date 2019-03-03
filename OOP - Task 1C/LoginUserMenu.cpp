@@ -1,4 +1,6 @@
 #include "LoginUserMenu.h"
+#include <algorithm>
+#include <stdlib.h>
 
 LoginUserMenu::LoginUserMenu(const std::string & title, Application * app) : Menu(title, app)
 {
@@ -16,16 +18,16 @@ void LoginUserMenu::OutputOptions()
 	}
 }
 
-bool LoginUserMenu::HandleChoice(const char choice)
+bool LoginUserMenu::HandleChoice(char choice)
 {
-	Question("I was triggered");
-	switch (choice) {
-	case 1://user wants to login		
-		std::vector<std::string> users = getUsers();
-		for (auto i = users.begin(); i != users.end(); ++i) {
-			std::cout << *i << ' ';
-		}
-		break;
+	std::vector<std::string> users = getUsers();
+	int userNumber = std::atoi(&choice);
+	if (userNumber >= 0 && userNumber <= users.size())//user wants to login		
+	{
+		//std::vector<std::string>::iterator username = std::find_if(users.begin(), users.end(), choice);
+		// After deep consideration I have found the above method to be too much complicated as there's .at function.
+		std::string username = users.at(--userNumber);
+		Question("Enter password for " + username);
 	}
 	return false;
 }
