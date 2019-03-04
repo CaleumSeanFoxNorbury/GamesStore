@@ -7,7 +7,7 @@ std::string Utils::GetLineFromUser()
 	return input;
 }
 
-char Utils::GetCharFromUser()
+char Utils::GetCharFromUser()//ERROR HERE, TAKES FIRST CHAR
 {
 	return toupper(GetLineFromUser()[0]);
 }
