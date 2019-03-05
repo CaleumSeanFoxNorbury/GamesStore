@@ -2,14 +2,13 @@
 
 #include <string>
 #include <iostream>
-#include <stdio.h>
-#include <time.h>
-#include <ctime>
+#include <windows.h> // use to define SYSTEMTIME , GetLocalTime() and GetSystemTime()
+#include <stdio.h> // For printf() (could otherwise use WinAPI equivalent)
 
 class Utils
 {
   public:
 	static std::string GetLineFromUser();
 	static char GetCharFromUser();
-	const static std::string currentDate();
+	const static void currentDate();
 };

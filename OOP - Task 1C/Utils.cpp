@@ -12,13 +12,10 @@ char Utils::GetCharFromUser()//ERROR HERE, TAKES FIRST CHAR
 	return toupper(GetLineFromUser()[0]);
 }
 
-const std::string Utils::currentDate() //returns const current date as buf, buf is std::string
+const void Utils::currentDate()
 {
-	//time_t now = time(0);
-	//struct tm tstruct;
-	//char buf[80];
-	//tstruct = *localtime(&now);
-	//strftime(buf, sizeof(buf), "%Y-%m-%d", &tstruct);
-	//return buf;
-	//this won't work currently, localtime is depreciated. localtime_s, wants two args but we don't want it.
+	SYSTEMTIME t; // Declare SYSTEMTIME struct
+	GetSystemTime(&t); // Fill out the struct so that it can be used
+	printf("%4d-%02d-%02d", t.wYear, t.wMonth, t.wDay); // Return year, month, day
+	return(void());
 }
