@@ -20,7 +20,7 @@ void LoginUserMenu::OutputOptions()
 bool LoginUserMenu::HandleChoice(char choice)
 {
 	std::vector<std::string> users = getUsers();
-	int userNumber = std::atoi(&choice);
+	int userNumber = choice - '0';
 	if (userNumber >= 0 && userNumber <= users.size())//user wants to login		
 	{
 		//std::vector<std::string>::iterator username = std::find_if(users.begin(), users.end(), choice);

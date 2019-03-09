@@ -16,7 +16,7 @@ void Menu::Paint()
 		Option('B', "Back");
 		Footer();
 
-		char choice = Utils::GetCharFromUser();
+		char choice = Utils::getCharFromUser();
 
 		if (choice == 'B')
 		{
@@ -54,7 +54,7 @@ void Menu::Option(int id, const std::string& option)
 std::string Menu::Question(const std::string& question)
 {
 	std::cout << "  " << question << ": ";
-	return Utils::GetLineFromUser();
+	return Utils::getLineFromUser();
 }
 
 void Menu::Header()

@@ -24,36 +24,36 @@ bool MainMenu::HandleChoice(char choice)
 {
 	switch (choice)
 	{
-		case 'S':
+	case 'S':
+	{
+		StoreMenu("STORE", app);
+	} break;
+	case 'L':
+	{
+		if (app->IsUserLoggedIn())
 		{
-			StoreMenu("STORE", app);
-		} break;
-		case 'L':
+			std::string answer = Question("Are you sure?");
+			if (answer == "y" || answer == "Y")
+			{
+				app->LogOut();
+			}
+		}
+		else
 		{
-			if (app->IsUserLoggedIn())
-			{
-				std::string answer = Question("Are you sure?");
-				if (answer == "y" || answer == "Y")
-				{
-					app->LogOut();
-				}
-			}
-			else
-			{
-				//get the users' list
-				LoginUserMenu("LOGIN", app);
-			}
-		} break;
-		case 'P':
+			// this would need to go to a LoginMenu - similar to StoreMenu
+			// instead we just set logged in to true on the main app object
+			LoginUserMenu("LOGIN", app);
+		}
+	} break;
+	case 'P':
+	{
+		if (app->IsUserLoggedIn())
 		{
-			if (app->IsUserLoggedIn())
-			{
-				Utils::currentDate();
-				Question("Not implemented, press return to continue (");
-				// this needs to go to a profile page - similar to StoreMenu
-				// notice the if - this only works if somebody is logged in
-			}
-		} break;
+			Question("Not implemented, press return to continue (");
+			// this needs to go to a profile page - similar to StoreMenu
+			// notice the if - this only works if somebody is logged in
+		}
+	} break;
 	}
 
 	return false;

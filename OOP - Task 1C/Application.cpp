@@ -1,7 +1,40 @@
 #include "Application.h"
 
-Application::Application() : userIsLoggedIn_(false)
+Application::Application() : currentAccount(nullptr), currentUser(nullptr), userIsLoggedIn_(false)
 {
+}
+
+Application::~Application()
+{
+	for (int i = 0; i < 1; ++i)
+	{
+		delete accounts[i];
+	}
+}
+
+bool Application::IsAccountLoggedIn() const
+{
+	return currentAccount != nullptr;
+}
+
+bool Application::IsUserLoggedIn()
+{
+	return userIsLoggedIn_;
+}
+
+Account* Application::GetCurrentAccount() const
+{
+	return currentAccount;
+}
+
+User* Application::GetCurrentUser() const
+{
+	return currentUser;
+}
+
+Store& Application::GetStore()
+{
+	return store;
 }
 
 void Application::LogOut()
@@ -12,9 +45,4 @@ void Application::LogOut()
 void Application::LogIn()
 {
 	userIsLoggedIn_ = true;
-}
-
-bool Application::IsUserLoggedIn()
-{
-	return userIsLoggedIn_;
 }
