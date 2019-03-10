@@ -1,4 +1,5 @@
 #include "StoreMenu.h"
+#include "Menu.h"
 
 StoreMenu::StoreMenu(const std::string& title, Application * app) : Menu(title, app)
 {
@@ -23,9 +24,55 @@ bool StoreMenu::HandleChoice(char choice)
 
 	if (index >= 0 && index < games.size())
 	{
-		Question("Not implemented, press return to continue (");
+		gameMenu(app->GetStore().games[1]);
 		// go to game detail page
 	}
 
 	return false;
+}
+
+char StoreMenu::showGameMenuAndGetUserChoice(Game* game)
+{
+	system("CLS");
+	std::cout << "                                  \n";
+	std::cout << "  -= " << game->GetName() << " =- \n";
+	std::cout << "                                  \n";
+	std::cout << "  " << game->GetDescription() << "\n";
+	std::cout << "                                  \n";
+
+	if (app->IsUserLoggedIn())
+	{
+		std::cout << "  P) Purchase for " << (game->GetCost() / 100.0f) << "\n";
+		std::cout << "                                                      \n";
+	}
+
+	std::cout << "  B) Back                   \n";
+	std::cout << "                            \n";
+	std::cout << "                            \n";
+	std::cout << "  >>> ";
+
+	return Utils::getCharFromUser();
+}
+
+void StoreMenu::gameMenu(Game* game)
+{
+	bool readyToGoBack = false;
+
+	while (readyToGoBack == false)
+	{
+		int choice = showGameMenuAndGetUserChoice(game);
+
+		switch (choice)
+		{
+		case 'P': {
+			if (app->IsUserLoggedIn())
+			{
+				// TODO: Implement buying from the store
+			}
+		} break;
+		case 'B': {
+			readyToGoBack = true;
+		} break;
+		}
+	}
 }

@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include "LoginUserMenu.h"
 
 MainMenu::MainMenu(const std::string& title, Application * app) : Menu(title, app)
 {

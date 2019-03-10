@@ -8,10 +8,8 @@
 #include "Admin.h"
 #include "Utils.h"
 
-// TODO: Remove from global scope once menu system is integrated
-Application app;
 
-void createHardcodedTestData()
+void createHardcodedTestData(Application& app)
 {
 	// Setup store with some games
 	app.GetStore().games[0] = new Game("The Witness", "Explore a nice island and solve puzzles.", 2999, 5);
@@ -46,11 +44,10 @@ void createHardcodedTestData()
 
 void main()
 {
-	// TODO: Remove call to dummy data, instead use Load and Save
-	createHardcodedTestData();
+	Application app;
+	createHardcodedTestData(app);
 
 	// TODO: app.Load();
 	// TODO: app.Save();
-	Application app;
 	MainMenu("MAIN MENU", &app);
 }
