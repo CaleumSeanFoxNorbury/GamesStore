@@ -6,5 +6,12 @@
 
 class Date {
 public:
-	const static void getCurrentDate();
+	Date(int Day, int Month, int Year);
+	~Date();
+
+	const static void getCurrentDate(); //move to u but check spec 
+	bool isDateValid();
+
+private:
+	int day, month, year;
 };

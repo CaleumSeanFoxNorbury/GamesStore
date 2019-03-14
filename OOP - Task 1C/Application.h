@@ -6,24 +6,24 @@
 
 class Application
 {
-	public:
-		Application();
-		~Application();
+public:
+	Application();
+	~Application();
 
-		bool IsAccountLoggedIn() const;
-		bool IsUserLoggedIn();
-		Account* GetCurrentAccount() const;
-		User* GetCurrentUser() const;
+	bool IsAccountLoggedIn() const;
+	bool IsUserLoggedIn();
+	Account* GetCurrentAccount() const;
+	User* GetCurrentUser() const;
 
-		Store& GetStore();
+	Store& GetStore();
 
-		void LogIn();
-		void LogOut();
-		
-		Account* accounts[1] = { }; // TODO: this needs changing to a dynamic collection
-	private:
-		Store store;
-		Account* currentAccount;
-		User* currentUser;
-		bool userIsLoggedIn_ = true;
+	void LogIn();
+	void LogOut();
+
+	List<Account*> accounts;
+private:
+	Store store;
+	Account* currentAccount;
+	User* currentUser;
+	bool userIsLoggedIn_ = true;
 };

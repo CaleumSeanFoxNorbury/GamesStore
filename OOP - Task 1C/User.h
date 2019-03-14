@@ -1,15 +1,21 @@
 #pragma once
 
 #include <string>
+#include "Date.h"
+#include "Game.h"
+
+
 
 class User
 {
-	public:
-		User(const std::string&, const std::string&, const std::string&);
-		virtual ~User();
-		const std::string& GetUsername() const;
-	private:
-		std::string username;
-		std::string password;
-		std::string created;  // TODO: replace with custom Date class, currently YYYY-MM-DD
+public:
+	User(const std::string&, const std::string&, const Date&);
+	virtual ~User();
+	const std::string& GetUsername() const;
+	//void View_Games();
+private:
+	//List<Game*> ListGame;
+	std::string username;
+	std::string password;
+	Date created;
 };

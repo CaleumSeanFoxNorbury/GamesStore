@@ -54,7 +54,8 @@ class List
     ~List();                                 // destructor
     List<T>& operator = (const List<T>&);    // copy assignment operator
     bool operator == (const List<T>&) const; // compare with content of another list
-    bool isEmpty() const;                    // check if list is empty
+	const T operator [](int i) const;
+	bool isEmpty() const;                    // check if list is empty
     const T first() const;                   // return first item (MUST be non-empty)
     const T last() const;                    // return last item (MUST be non-empty)
     const List<T> tail() const;              // return tail (MUST be non-empty)
@@ -131,6 +132,20 @@ bool List<T>::operator == (const List<T>& rhs) const
         }
     }
 }
+
+template<class T>
+const T List<T>::operator[](int i) const
+{
+	assert(head_ != nullptr);
+	Node<T>* n = head_;
+
+	for (int u(0); u < i; u++) {
+		n = n->next_;
+	}
+
+	return n->item_;
+}
+
 
 template <class T>
 bool List<T>::isEmpty() const
